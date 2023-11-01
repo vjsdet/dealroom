@@ -1,0 +1,38 @@
+{
+  "name": "dealroom",
+  "version": "1.0.0",
+  "description": "dealroom ui automation",
+  "main": "index.js",
+  "scripts": {
+    "cypress:run:headed": "npx cypress run --headed --browser chrome",
+    "cypress:report": "node cucumber-html-report.js",
+    "tags:run:headed": "npx cypress-tags run -g \"cypress/e2e/**/*.feature\" --browser chrome --headed -e "
+  },
+  "keywords": [
+    "dealroom"
+  ],
+  "author": "dealroom",
+  "license": "ISC",
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber.json"
+    },
+    "stepDefinitions": [
+      "[filepath]/**/*.{js,ts}",
+      "[filepath]/**/*.{js,ts}",
+      "cypress/e2e/step_definitions/**/*.{js,ts}"
+    ]
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "cypress-real-events": "^1.10.3"
+  },
+  "devDependencies": {
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "cypress": "^12.5.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "multiple-cucumber-html-reporter": "^3.0.1"
+  }
+}
